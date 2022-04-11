@@ -1,0 +1,591 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/********************** 
+
+App styles
+
+************************/
+
+#widget_root {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.hide-all {
+  display: none;
+}
+
+#widget_root .App {
+  text-align: center;
+}
+
+#widget_root .appHeader {
+  font-size: 40px;
+  color: #002d72;
+  padding: 2.5rem 2.5rem 10px;
+}
+
+#widget_root .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+#widget_root .blue-Hr {
+  width: 100%;
+  height: 3px;
+  background-color: #d7ebf5;
+}
+
+#widget_root button {
+  font-size: calc(10px + 2vmin);
+}
+
+#widget_root .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.pac-container:after {
+  content: none !important;
+  background-image: none !important;
+  height: 0px;
+}
+
+#widget_root .gm-svpc {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #widget_root .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/***************************************************
+Map Styles - most will only work if ID is specified
+****************************************************/
+#widget_root .mapOuter {
+  height: 300px;
+}
+
+#widget_root .mapButton {
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #002d72;
+  padding: 10px 25px;
+  margin-bottom: 20px;
+}
+
+#mapCard-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #002d72;
+  margin-bottom: 10px;
+}
+
+#mapCard-container {
+  max-width: 300px;
+  padding: 10px;
+}
+
+#mapCard-copy {
+  display: inline-block;
+  width: 120px;
+  margin: 5px 10px 0px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #002d72;
+}
+
+#apptButton {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #002d72;
+  padding: 10px 25px;
+}
+
+#widget_root .mapCard-detail svg {
+  display: inline-block;
+}
+
+#mapCard-icon {
+  display: inline-block;
+}
+
+#map .gm-style-iw-d {
+  max-height: none !important;
+}
+
+#map .gm-style-iw {
+  max-height: none !important;
+}
+
+#widget_root .gm-style-cc {
+  display: none !important;
+}
+
+#widget_root .timeIndicator {
+  position: relative;
+  margin-left: 20px;
+  display: flex;
+  font-size: 20px;
+  font-weight: 400;
+  color: #002d72;
+  margin-bottom: 20px;
+}
+
+#widget_root .indicator::before {
+  position: absolute;
+  top: 10px;
+  left: -18px;
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+}
+
+#widget_root .indicatorOpen::before {
+  background-color: #3ede7b;
+}
+
+#widget_root .indicatorClosed::before {
+  background-color: #f02d5f;
+}
+
+@media only screen and (min-width: 768px) {
+  #widget_root .clinicDetail_holder {
+    width: 50%;
+    height: 800px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #widget_root .mapOuter {
+    height: 800px;
+  }
+}
+
+/************************
+Clinic List styles
+************************/
+#widget_root .clearButton {
+  font-size: 14px;
+  text-align: center;
+  color: #002d72;
+  background-color: #ffffff;
+  padding: 10px 25px;
+  margin-bottom: 20px;
+}
+
+#widget_root .clinicCard {
+  padding-top: 30px;
+  position: relative;
+}
+
+#widget_root .clinicCard .clinicCard-distance p {
+  background-color: #d0e8f3;
+  color: #002d72;
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+}
+
+#widget_root .clinicCard::after {
+  position: absolute;
+  bottom: 1px;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #d7ebf5;
+}
+
+#widget_root .clinicCard:hover {
+  background: #f6fbfd;
+  cursor: pointer;
+}
+
+#widget_root .clinicCard:focus {
+  background: #f6fbfd;
+  cursor: pointer;
+}
+
+#widget_root .clinic_name {
+  font-weight: 300;
+  font-size: 26px;
+  color: #002d72;
+}
+
+#widget_root .clinicDetail {
+  overflow-x: hidden;
+}
+
+#widget_root .cardDirections {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#widget_root .directionsLink {
+  display: contents;
+}
+
+@media only screen and (min-width: 768px) {
+  #widget_root .clinicDetail {
+    overflow-x: hidden !important;
+  }
+
+  #widget_root .clinicCard {
+    padding-top: 50px;
+    position: relative;
+  }
+}
+
+/************************
+Filter Styles
+************************/
+
+#widget_root .resultsNumber {
+  margin-top: 30px;
+  font-size: 26px;
+  text-align: center;
+}
+
+#widget_root .search_filter_reset .search_filter_icon {
+  stroke: #c5c5c5;
+}
+
+#widget_root .search_filter_reset {
+  background-color: #e5e5e5;
+}
+
+#widget_root .search_filter_container {
+  height: 52px;
+  margin-bottom: 10px;
+}
+
+#widget_root .search_filter_container:hover {
+  transition: all 0.3s;
+  box-shadow: 0px 0px 5px 1px rgb(0 45 114 / 60%);
+  cursor: pointer;
+}
+
+#widget_root .search_filter_button {
+  background-color: #002d72;
+}
+
+#widget_root .search_filter_icon {
+  margin: 0 auto;
+}
+
+#widget_root .address_filter input {
+  padding: 10px;
+  border: 1px solid #002d72 !important;
+  color: #002d72;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#widget_root .address_filter-input:focus-visible {
+  outline: none;
+}
+
+#widget_root .address_filter input:focus {
+  border: 1px solid #002d72 !important;
+}
+
+#widget_root .address_filter:hover {
+  transition: all 0.3s;
+  box-shadow: 0px 0px 5px 1px rgb(0 45 114 / 30%);
+}
+
+#widget_root .address_filter::placeholder {
+  color: #002d72;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#widget_root::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #002d72;
+}
+
+#widget_root .procedure_filter {
+  font-size: 14px;
+  border: 1px solid #002d72;
+  cursor: pointer;
+}
+
+#widget_root .procedure_filter:hover {
+  cursor: pointer;
+}
+
+.pac-container {
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 999999;
+}
+
+#widget_root .css-94zhni-control {
+  border: none;
+}
+
+#widget_root .procedure_filter:hover {
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 5px 1px rgb(0 45 114 / 30%);
+}
+
+#widget_root .css-1wa3eu0-placeholder {
+  color: #002d72;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#widget_root .css-1wa3eu0-placeholder:active {
+  color: #002d72;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#widget_root .css-ne0h02-control {
+  border: 1px solid #002d72;
+  color: #002d72;
+  font-size: 14px !important;
+  font-weight: 300;
+}
+
+#widget_root .css-eawwns-control:active {
+  border: 1px solid #002d72 !important;
+  box-shadow: 1px solid #1d97f2 !important;
+}
+#widget_root .css-eawwns-control:hover {
+  border: 1px solid #002d72 !important;
+  box-shadow: 1px solid #1d97f2 !important;
+}
+
+#widget_root .css-1ksusm5-control:hover {
+  border: 1px solid #002d72 !important;
+}
+
+#widget_root .css-1okebmr-indicatorSeparator {
+  display: none;
+}
+
+#widget_root .distance_filter {
+  font-size: 14px;
+  border: 1px solid #002d72 !important;
+}
+
+#widget_root .distance_filter:hover {
+  transition: all 0.3s;
+  box-shadow: 0px 0px 5px 1px rgb(0 45 114 / 30%);
+}
+
+#widget_root .css-15jfkh-control {
+  border: none;
+}
+
+@media only screen and (min-width: 768px) {
+  #widget_root .filter_holder {
+    display: block;
+  }
+
+  #widget_root .search_filter_container {
+    width: 52px;
+  }
+
+  #widget_root .search_filter_container {
+    margin-bottom: 0px;
+  }
+
+  #widget_root .resultsNumber {
+    margin-top: 0px;
+    font-size: 26px;
+    text-align: right;
+  }
+}
+
+/************************
+Clinic Detail styles
+************************/
+/* #widget_root .clinicCard  {
+  margin-bottom: 50px;
+} */
+
+#widget_root .apptButton {
+  max-width: 240px;
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #002d72;
+  padding: 10px 25px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+#widget_root .clinicDetail--blankMessage {
+  font-size: 25px;
+}
+
+#widget_root .clinicCard-title {
+  font-size: 25px;
+  color: #002d72;
+  margin-bottom: 16px;
+}
+
+#widget_root .clinicCard-copy {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#widget_root .clinicCard-copy__2ndLine {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+#widget_root .clinicCard-phone {
+  font-size: 20px;
+  font-weight: 700;
+  color: #002d72;
+  margin-bottom: 10px;
+}
+
+#widget_root .clinicCard-fax {
+  font-size: 20px;
+  font-weight: 700;
+  color: #002d72;
+  margin-bottom: 10px;
+}
+
+#widget_root .clinicDetail-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 25px;
+  color: #2d2926;
+}
+
+#widget_root .clinicDetail-day {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+#widget_root .clinicDetail-hour {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#widget_root .clinicDetail-service {
+  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300px;
+  background-color: #e6eaf1;
+  border-radius: 50px;
+  margin: 0px 10px 10px 0px;
+  padding: 8px 20px;
+}
+
+#widget_root #faxSvg {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-image: url("../src/Assets/icons/faxIcon.b83b75d5.svg");
+  background-repeat: no-repeat;
+}
+
+#widget_root #phoneSvg {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-image: url("../src/Assets/icons/phoneIcon.33fbfde1.svg");
+  background-repeat: no-repeat;
+}
+
+#widget_root .css-69fh05-control:hover {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#widget_root .css-2613qy-menu {
+  background-color: #ffffff !important;
+}
+
+#widget_root .procedure__control:hover,
+#widget_root .distance__control:hover {
+  border: none;
+  box-shadow: none;
+}
+
+#widget_root .procedure__control,
+#widget_root .distance__control {
+  border: none;
+  box-shadow: none;
+}
+
+#widget_root .procedure__option:hover,
+#widget_root .distance__option:hover {
+  background-color: rgba(0, 45, 114, 0.1);
+}
+
+#widget_root .procedure__option:focus-visible,
+#widget_root .distance__option:hover {
+  background-color: rgba(0, 45, 114, 0.1);
+}
+
+/* #widget_root .procedure__option:focus, #widget_root .distance__option:focus {
+  background-color: rgba(0, 45, 114, 0.1);
+} */
+/* 
+#widget_root .procedure__option:active {
+  background-color: rgba(0, 45, 114, 0.1);
+}
+
+#widget_root .procedure__option:target {
+  background-color: rgba(0, 45, 114, 0.1);
+} */
+
+#widget_root .procedure_filter {
+  z-index: 100;
+}
+
+#widget_root .map_filters {
+  padding: 0 !important;
+}
+
+#widget_root .search_button:hover {
+  transition: all 0.3s;
+  box-shadow: 0 0 5px 1px #002d724d;
+  cursor: pointer;
+}
+
+#widget_root .pac_container {
+  z-index: 999999;
+}
+
+#widget_root .procedure__placeholder {
+  color: #808080;
+}
+
+#widget_root .address_filter input {
+  color: #808080;
+}
