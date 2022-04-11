@@ -1,9 +1,10 @@
 import React from "react";
 import { SearchIcon } from "@heroicons/react/outline";
 import Select from "react-select";
+import { procedures } from "../procedures";
 
-function SearchBarFilters() {
-  const [selectedOption, setSelectedOption] = React.useState(null);
+function SearchBarFilters({ address }) {
+  const [selectedProcedure, setSelectedProcedure] = React.useState(null);
 
   // Keep track of local state called searchedCoords
   // If a user does a search or not track changing zoom level and map position
@@ -13,31 +14,6 @@ function SearchBarFilters() {
 
   let autocomplete;
   // Create a variable for maps-places-autocomplete: assigned later
-
-  // function getProcedures() {
-  //   // arranging procedure list
-  //   const clinics = originalData;
-  //   const list = clinics
-  //     .map((location) => {
-  //       return location.services.split(",");
-  //     })
-  //     .flat();
-
-  //   const procedures = [...new Set(list)].map((item) =>
-  //     item[0] === " " ? item.substring(1, item.length) : item
-  //   );
-
-  //   return [...new Set(procedures)];
-  // }
-
-  // function getProceduresList() {
-  //   return getProcedures().map((procedure) => {
-  //     return {
-  //       value: procedure,
-  //       label: procedure,
-  //     };
-  //   });
-  // }
 
   React.useEffect(() => {
     // This side effect extentiates googles autocomplete function for places.
@@ -59,6 +35,12 @@ function SearchBarFilters() {
     // set specific fields for searching
   }, []);
 
+  React.useEffect(() => {
+    if (address !== "") {
+      inputRef.current.value = address;
+    }
+  }, [address]);
+
   return (
     <div className="filter_holder flex flex-row w-full space-x-4 justify-between items-center">
       <Select
@@ -68,17 +50,21 @@ function SearchBarFilters() {
         blurInputOnSelect={true}
         searchable={false}
         isSearchable={false}
-        options={[]}
+        options={procedures}
         placeholder="Select Procedure"
         className="procedure_filter w-full md:w-1/2 lg:w-1/3 my-2"
         isClearable={true}
         classNamePrefix="procedure"
-        value={selectedOption}
+        value={selectedProcedure}
         onChange={(val) => {
-          setSelectedOption({
-            value: val,
-            label: val,
-          });
+          if (val && val.value) {
+            setSelectedProcedure({
+              value: val.value,
+              label: val.value,
+            });
+          } else {
+            setSelectedProcedure(null);
+          }
         }}
         styles={{
           control: (styles) => ({
@@ -96,6 +82,7 @@ function SearchBarFilters() {
           className="address_filter-input px-3 py-3 w-full"
           placeholder="Search by Address or Suburb"
           ref={inputRef}
+          defaultValue={address}
         />
       </div>
 
@@ -103,7 +90,7 @@ function SearchBarFilters() {
       <div
         className="search_filter_container bg-blue-900 h-12"
         onClick={() => {
-          const procedure = localStorage.getItem("procedure");
+          const procedure = selectedProcedure ? selectedProcedure.value : null;
           if (inputRef.current) {
             document.location =
               "/our-locations/?procedure=" +
