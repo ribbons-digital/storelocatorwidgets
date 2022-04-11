@@ -3,6 +3,7 @@ import "./App.css";
 import "./SearchBar.css";
 import "./Widget.css";
 import React from "react";
+import WidgetFilters from "./widgets/WidgetFilter";
 
 function App() {
   const [userLocation, setUserLocation] = React.useState(null);
@@ -57,7 +58,7 @@ function App() {
     }
   }, [userLocation]);
 
-  return <SearchBarFilters address={address} />;
+  return <WidgetFilters address={address} />;
 }
 
 export default App;
